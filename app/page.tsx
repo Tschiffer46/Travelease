@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DestinationSearch from '@/components/DestinationSearch';
 
 export default function Home() {
   return (
@@ -38,21 +39,7 @@ export default function Home() {
           
           {/* Destination Search */}
           <div className="mt-10 max-w-2xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-primary-900 mb-4">
-                Where are you traveling?
-              </h2>
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  placeholder="e.g., Barcelona in July"
-                  className="flex-1 px-4 py-3 border border-primary-300 rounded-md focus:ring-2 focus:ring-accent-500 focus:border-transparent"
-                />
-                <button className="px-6 py-3 bg-accent-600 text-white font-medium rounded-md hover:bg-accent-700 transition-colors">
-                  Get Recommendations
-                </button>
-              </div>
-            </div>
+            <DestinationSearch />
           </div>
 
           {/* CTA Buttons */}
@@ -91,6 +78,34 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="mt-20 bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-primary-900 mb-6 text-center">Why TravelEase?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl mb-3">✈️</div>
+              <h3 className="font-semibold text-primary-900 mb-2">TSA Compliant</h3>
+              <p className="text-primary-600 text-sm">
+                Smart liquid calculator ensures you stay within 1L limits
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-3">🌍</div>
+              <h3 className="font-semibold text-primary-900 mb-2">Climate-Smart</h3>
+              <p className="text-primary-600 text-sm">
+                Get personalized product recommendations based on your destination's weather
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl mb-3">🌟</div>
+              <h3 className="font-semibold text-primary-900 mb-2">Premium Brands</h3>
+              <p className="text-primary-600 text-sm">
+                Curated selection from well-known, trusted brands
+              </p>
+            </div>
           </div>
         </div>
       </main>
