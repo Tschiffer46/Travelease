@@ -1,6 +1,24 @@
 # TravelEase - Travel-Sized Beauty & Hygiene E-commerce Platform
 
-## 🚨 SITE DEPLOYED BUT LOOKS BAD? READ THIS FIRST!
+## 🚨 NEVER USED TERMINAL BEFORE? START HERE! 🚨
+
+### 👶 **[COMPLETE BEGINNERS GUIDE](COMPLETE_BEGINNERS_GUIDE.md)** ⭐⭐⭐
+
+**Written for someone who has NEVER used Terminal/Command Line before!**
+
+This guide explains:
+- ✅ **What Terminal is** (it's NOT your web browser!)
+- ✅ **WHERE to find Terminal** on your Mac/Windows/Linux
+- ✅ **WHAT Terminal looks like** when you open it
+- ✅ **WHERE to type commands** (exactly where to click)
+- ✅ **Step-by-step instructions** with plain English explanations
+- ✅ **Troubleshooting** for common beginner mistakes
+
+**If you're confused about "where do I type this?" - read the Complete Beginners Guide first!**
+
+---
+
+## 🚨 SITE DEPLOYED BUT LOOKS BAD? (For Those Who Know Terminal)
 
 **If your Railway site is live but shows no product images or looks unprofessional:**
 
@@ -22,6 +40,7 @@ railway run npm run db:seed
 **Note:** Railway CLI is now the only recommended method. Dashboard UI changes frequently, so CLI is more reliable.
 
 **Other Helpful Guides:**
+- **[COMPLETE_BEGINNERS_GUIDE.md](COMPLETE_BEGINNERS_GUIDE.md)** - For absolute beginners (NEVER used Terminal)
 - [FIX_YOUR_SITE_NOW.md](FIX_YOUR_SITE_NOW.md) - Environment variables + database (now corrected)
 - [DATABASE_FIX_GUIDE.md](DATABASE_FIX_GUIDE.md) - Database details (now corrected)
 - [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) - Environment help
