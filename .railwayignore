@@ -1,0 +1,15 @@
+# Railway ignore file - exclude unnecessary files from build context
+node_modules
+.next
+.git
+*.md
+*.txt
+.env*
+!.env.example
+.vscode
+.idea
+*.log
+coverage
+dist
+build
+.cache
