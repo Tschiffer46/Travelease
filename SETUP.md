@@ -6,7 +6,7 @@ This guide will help you set up and deploy the TravelEase e-commerce platform.
 
 Before you begin, make sure you have:
 
-- **Node.js 18+** installed on your system
+- **Node.js 20.9.0+** installed on your system (required for Next.js 16)
 - **PostgreSQL database** (local or cloud-hosted)
 - **OpenWeatherMap API key** (free tier available at https://openweathermap.org/api)
 - **Stripe account** (for payment processing - optional for initial setup)

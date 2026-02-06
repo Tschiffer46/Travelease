@@ -104,12 +104,16 @@ Error: TypeScript errors
 
 Error: Out of memory
 → Solution: Add "NODE_OPTIONS=--max_old_space_size=4096" variable
+
+Error: You are using Node.js 18.x.x. For Next.js, Node.js version ">=20.9.0" is required.
+→ Solution: Update nixpacks.toml to use nodejs-20_x (already fixed in this repo)
 ```
 
 **Fix:**
 1. Test build locally: `npm run build`
-2. Commit any fixes
-3. Redeploy on Railway (git push triggers auto-deploy)
+2. Verify Node.js version in nixpacks.toml is set to `nodejs-20_x` (required for Next.js 16+)
+3. Commit any fixes
+4. Redeploy on Railway (git push triggers auto-deploy)
 
 ### Issue 3: Database Connection Errors
 

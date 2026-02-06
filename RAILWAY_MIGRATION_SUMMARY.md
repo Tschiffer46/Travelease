@@ -33,7 +33,7 @@ The TravelEase repository has been successfully reconfigured for **immediate dep
 3. **nixpacks.toml** (150 bytes)
    ```toml
    [phases.setup]
-   nixPkgs = ["nodejs-18_x"]
+   nixPkgs = ["nodejs-20_x"]
 
    [phases.install]
    cmds = ["npm install"]

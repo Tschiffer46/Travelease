@@ -43,7 +43,7 @@ A modern, full-featured e-commerce platform built with Next.js 14+ for selling t
 ## 📦 Installation
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 20.9.0+ (required for Next.js 16)
 - PostgreSQL database
 - npm or yarn
 
