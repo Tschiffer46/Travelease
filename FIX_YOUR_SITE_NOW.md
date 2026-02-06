@@ -63,7 +63,9 @@ Follow these steps in order:
 
 ### Step 2: Re-seed Database with Images (5 minutes)
 
-**Option A: Using Railway CLI (Recommended)**
+**Using Railway CLI (Only Reliable Method)**
+
+Railway CLI is the most reliable way to run database commands. The Railway dashboard UI changes frequently, so CLI is recommended.
 
 ```bash
 # Install Railway CLI (if not installed)
@@ -80,15 +82,10 @@ railway link
 railway run npm run db:seed
 ```
 
-**Option B: Using Railway Dashboard**
-
-1. In Railway dashboard, go to your application service
-2. Click "Settings" tab
-3. Scroll to "Service"
-4. Click "..." menu → "Run Command"
-5. Enter: `npm run db:seed`
-6. Click "Run"
-7. Wait for completion (30 seconds)
+**Installation Notes:**
+- If you don't have Node.js/npm: Download from https://nodejs.org
+- If npm install fails: Try `sudo npm install -g @railway/cli` (Mac/Linux)
+- Alternative install: Use Railway's standalone CLI from https://docs.railway.app/develop/cli
 
 ### Step 3: Verify Fix (1 minute)
 

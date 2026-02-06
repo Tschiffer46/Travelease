@@ -25,24 +25,26 @@ Select your `travelease` project when prompted.
 
 ### Step 3: Re-seed the Database
 
-**Option A: Using Railway CLI (Recommended)**
+**Using Railway CLI (Recommended Method)**
+
+Railway CLI is the most reliable way to run database commands:
 
 ```bash
 railway run npm run db:push
 railway run npm run db:seed
 ```
 
-**Option B: From Railway Dashboard**
+**Why CLI Instead of Dashboard?**
+- Railway dashboard UI changes frequently
+- CLI commands are stable and well-documented
+- Better error messages and feedback
+- Easier to troubleshoot issues
 
-1. Go to https://railway.app
-2. Open your `travelease` project
-3. Click on your application service (not PostgreSQL)
-4. Go to "Settings" tab
-5. Under "Service Variables", verify DATABASE_URL is set
-6. Go to "Deployments" tab
-7. Click "..." menu on latest deployment
-8. Select "Run Command"
-9. Run: `npm run db:seed`
+**CLI Installation Help:**
+- Main install: `npm install -g @railway/cli`
+- If permission errors: `sudo npm install -g @railway/cli` (Mac/Linux)
+- Alternative: Download from https://docs.railway.app/develop/cli
+- Need Node.js first: https://nodejs.org
 
 ### Step 4: Verify Products Have Images
 

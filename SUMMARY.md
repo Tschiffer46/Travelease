@@ -57,6 +57,8 @@ Go to Railway → Your App → Variables tab:
 
 ### Step 2: Re-seed Database (5 min)
 
+**Using Railway CLI (Recommended):**
+
 ```bash
 # Install Railway CLI
 npm install -g @railway/cli
@@ -69,8 +71,7 @@ railway link
 railway run npm run db:seed
 ```
 
-**OR use Railway Dashboard:**
-- App Service → Settings → Run Command → `npm run db:seed`
+**Note:** Railway CLI is the most reliable method. Dashboard UI paths change frequently.
 
 ### Step 3: Verify (1 min)
 
