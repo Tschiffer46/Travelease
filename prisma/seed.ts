@@ -26,6 +26,11 @@ async function main() {
       currency: 'SEK',
       category: 'skincare',
       stock: 50,
+      imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Sunscreen SPF 50',
@@ -38,6 +43,11 @@ async function main() {
       currency: 'SEK',
       category: 'skincare',
       stock: 40,
+      imageUrl: 'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Micellar Water',
@@ -50,6 +60,11 @@ async function main() {
       currency: 'SEK',
       category: 'skincare',
       stock: 60,
+      imageUrl: 'https://images.unsplash.com/photo-1620916297897-5be4e4c2f5c7?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1620916297897-5be4e4c2f5c7?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Lip Balm SPF 15',
@@ -62,6 +77,11 @@ async function main() {
       currency: 'SEK',
       category: 'skincare',
       stock: 100,
+      imageUrl: 'https://images.unsplash.com/photo-1610873167013-4b25a4f4f4e7?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1610873167013-4b25a4f4f4e7?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?w=400&h=400&fit=crop',
+      ],
     },
 
     // Haircare
@@ -76,6 +96,11 @@ async function main() {
       currency: 'SEK',
       category: 'haircare',
       stock: 75,
+      imageUrl: 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1608248597187-eb0c1f6970b7?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Travel Conditioner',
@@ -88,6 +113,11 @@ async function main() {
       currency: 'SEK',
       category: 'haircare',
       stock: 75,
+      imageUrl: 'https://images.unsplash.com/photo-1608248597281-a434e9d3e0e0?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1608248597281-a434e9d3e0e0?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Dry Shampoo',
@@ -100,6 +130,11 @@ async function main() {
       currency: 'SEK',
       category: 'haircare',
       stock: 45,
+      imageUrl: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Hair Brush - Compact',
@@ -112,6 +147,11 @@ async function main() {
       currency: 'SEK',
       category: 'haircare',
       stock: 30,
+      imageUrl: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1596704017254-9b121068ec31?w=400&h=400&fit=crop',
+      ],
     },
 
     // Personal Hygiene
@@ -126,6 +166,11 @@ async function main() {
       currency: 'SEK',
       category: 'personal hygiene',
       stock: 120,
+      imageUrl: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1628497446868-6e2b6b5e0c7f?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Compact Toothbrush',
@@ -138,6 +183,11 @@ async function main() {
       currency: 'SEK',
       category: 'personal hygiene',
       stock: 80,
+      imageUrl: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1616014434825-0c2c4a5bf6f7?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Hand Sanitizer',
@@ -150,6 +200,11 @@ async function main() {
       currency: 'SEK',
       category: 'personal hygiene',
       stock: 150,
+      imageUrl: 'https://images.unsplash.com/photo-1584930448949-b0a9e0d2c05e?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1584930448949-b0a9e0d2c05e?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1603484477859-abe6a73f9366?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Deodorant Roll-On',
@@ -162,6 +217,11 @@ async function main() {
       currency: 'SEK',
       category: 'personal hygiene',
       stock: 90,
+      imageUrl: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Wet Wipes Pack',
@@ -174,6 +234,11 @@ async function main() {
       currency: 'SEK',
       category: 'personal hygiene',
       stock: 100,
+      imageUrl: 'https://images.unsplash.com/photo-1621368683969-ff3aed76cfae?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1621368683969-ff3aed76cfae?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&fit=crop',
+      ],
     },
 
     // Cosmetics
@@ -188,6 +253,11 @@ async function main() {
       currency: 'SEK',
       category: 'cosmetics',
       stock: 55,
+      imageUrl: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Mascara Mini',
@@ -200,6 +270,11 @@ async function main() {
       currency: 'SEK',
       category: 'cosmetics',
       stock: 70,
+      imageUrl: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Lip Gloss',
@@ -212,6 +287,11 @@ async function main() {
       currency: 'SEK',
       category: 'cosmetics',
       stock: 40,
+      imageUrl: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Makeup Remover Wipes',
@@ -224,6 +304,11 @@ async function main() {
       currency: 'SEK',
       category: 'cosmetics',
       stock: 85,
+      imageUrl: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop',
+      ],
     },
     {
       name: 'Compact Mirror',
@@ -236,6 +321,11 @@ async function main() {
       currency: 'SEK',
       category: 'cosmetics',
       stock: 50,
+      imageUrl: 'https://images.unsplash.com/photo-1585338107529-13aff131d4a5?w=400&h=400&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1585338107529-13aff131d4a5?w=400&h=400&fit=crop',
+        'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop',
+      ],
     },
   ];
 
