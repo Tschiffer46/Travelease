@@ -1,5 +1,23 @@
 # TravelEase - Travel-Sized Beauty & Hygiene E-commerce Platform
 
+## 🚨 SITE DEPLOYED BUT LOOKS BAD? READ THIS FIRST!
+
+**If your Railway site is live but shows no product images or looks unprofessional:**
+
+👉 **[READ FIX_YOUR_SITE_NOW.md](FIX_YOUR_SITE_NOW.md)** - 10-minute fix guide
+
+**Quick Summary:**
+1. Update 3 environment variables in Railway (5 min)
+2. Re-seed database with `railway run npm run db:seed` (5 min)
+3. Hard refresh browser - Done! ✨
+
+**Detailed Guides:**
+- [SUMMARY.md](SUMMARY.md) - Complete overview
+- [DATABASE_FIX_GUIDE.md](DATABASE_FIX_GUIDE.md) - Database help
+- [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) - Environment help
+
+---
+
 A modern, full-featured e-commerce platform built with Next.js 14+ for selling travel-sized hygiene and beauty products, specifically designed for Nordic travelers.
 
 ## 🌟 Features
