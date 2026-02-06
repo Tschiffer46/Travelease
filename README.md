@@ -4,17 +4,28 @@
 
 **If your Railway site is live but shows no product images or looks unprofessional:**
 
-👉 **[READ FIX_YOUR_SITE_NOW.md](FIX_YOUR_SITE_NOW.md)** - 10-minute fix guide
+### ⚠️ Railway Instructions Updated (January 2026)
 
-**Quick Summary:**
-1. Update 3 environment variables in Railway (5 min)
-2. Re-seed database with `railway run npm run db:seed` (5 min)
-3. Hard refresh browser - Done! ✨
+**If you found the Railway dashboard instructions invalid, they've been FIXED!**
 
-**Detailed Guides:**
-- [SUMMARY.md](SUMMARY.md) - Complete overview
-- [DATABASE_FIX_GUIDE.md](DATABASE_FIX_GUIDE.md) - Database help
+👉 **[READ ISSUE_RESOLVED.md](ISSUE_RESOLVED.md)** ⭐ **START HERE**
+
+👉 **[READ UPDATED_INSTRUCTIONS.md](UPDATED_INSTRUCTIONS.md)** - Complete guide
+
+**Quick Fix Using Railway CLI (5 min):**
+```bash
+npm install -g @railway/cli
+railway login && railway link
+railway run npm run db:seed
+```
+
+**Note:** Railway CLI is now the only recommended method. Dashboard UI changes frequently, so CLI is more reliable.
+
+**Other Helpful Guides:**
+- [FIX_YOUR_SITE_NOW.md](FIX_YOUR_SITE_NOW.md) - Environment variables + database (now corrected)
+- [DATABASE_FIX_GUIDE.md](DATABASE_FIX_GUIDE.md) - Database details (now corrected)
 - [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) - Environment help
+- [SUMMARY.md](SUMMARY.md) - Complete overview
 
 ---
 
