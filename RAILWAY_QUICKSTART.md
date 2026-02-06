@@ -2,6 +2,14 @@
 
 **Time: 5 minutes | Cost: Free tier available**
 
+## ⚠️ Important: Understanding Railway Services
+
+Your Railway project will have **TWO services**:
+1. 🚀 **Your Next.js Application** (travelease) - This runs your website
+2. 🗄️ **PostgreSQL Database** - This stores your data
+
+**When troubleshooting, always check the APPLICATION service logs, not the PostgreSQL logs!**
+
 ## Prerequisites
 - Railway account (https://railway.app)
 - GitHub repository connected
@@ -37,22 +45,57 @@ NODE_ENV=production
 npm i -g @railway/cli
 railway login
 railway link
+
+# IMPORTANT: These commands run on your APPLICATION service
 railway run npm run db:push
 railway run npm run db:seed
 ```
 
+**✅ Verification:** Commands should complete successfully:
+```
+✓ db:push - "Prisma schema has been synchronized"
+✓ db:seed - "Created 18 products" or similar
+```
+
 ## ✅ Done!
 
-Your app is live at: `https://your-app.up.railway.app`
+Your app should be live at: `https://your-app.up.railway.app`
+
+### 🔍 Verify Deployment
+
+**Check your APPLICATION service (not PostgreSQL):**
+
+1. In Railway dashboard, click on your **application service** (travelease)
+2. Go to **Deployments** tab → Click latest deployment
+3. Check **Status**: Should say "Active" or "Success"
+4. View **Logs** - Should see:
+   ```
+   ✓ Compiled successfully
+   ✓ Ready in XXXms
+   ✓ Listening on port 3000
+   ```
+5. Click **View** button or visit your Railway URL
+
+**If you only see PostgreSQL logs** (database system ready, etc.), you're looking at the wrong service! Switch to your application service.
 
 ## Quick Commands
 
 ```bash
-# View logs
-railway logs -f
+# View APPLICATION logs (not PostgreSQL!)
+railway logs --service=travelease -f
 
-# Run commands
-railway run <command>
+# View PostgreSQL logs (only if DB issues)
+railway logs --service=PostgreSQL -f
+
+# Run commands on your application
+railway run npm run db:push
+railway run npm run db:seed
+
+# Check deployment status
+railway status
+
+# Open app in browser
+railway open
 
 # Deploy updates
 git push origin main  # Auto-deploys on Railway
@@ -66,17 +109,35 @@ git push origin main  # Auto-deploys on Railway
 
 ## 🆘 Quick Troubleshooting
 
+**⚠️ IMPORTANT: You have TWO services in Railway:**
+1. **Your Next.js Application** (travelease) ← Check these logs for app issues
+2. **PostgreSQL Database** ← Only check if DB connection fails
+
+**If you see "database system is ready to accept connections"**, that's the PostgreSQL logs - your database is working fine! 
+
+**You need to check your APPLICATION logs:**
+```
+In Railway Dashboard:
+1. Click on your APPLICATION service (not PostgreSQL)
+2. Go to Deployments → Latest Deployment → View Logs
+3. Look for "Ready" or "Listening on port 3000"
+```
+
 **Build fails?**
-- Check logs: `railway logs`
-- Verify environment variables set
+- Check APPLICATION logs (not PostgreSQL): `railway logs --service=travelease`
+- Verify environment variables set in APPLICATION service
 
 **Can't connect to DB?**
 - Ensure PostgreSQL service added
-- Check DATABASE_URL exists
+- Check DATABASE_URL exists in APPLICATION service variables
+- Run: `railway run npm run db:push`
 
 **App not loading?**
-- Wait 30s for cold start (free tier)
-- Check deployment status in dashboard
+- Check APPLICATION deployment status (not PostgreSQL)
+- Wait 30-60s for cold start (free tier)
+- Visit: `https://your-app.up.railway.app`
+
+**📖 Detailed help:** [RAILWAY_TROUBLESHOOTING.md](RAILWAY_TROUBLESHOOTING.md)
 
 ## 💡 Pro Tips
 

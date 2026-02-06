@@ -154,7 +154,9 @@ Key models:
 4. **Set environment variables** - Add required variables
 5. **Deploy** - Automatic build and deployment
 
-📖 **See [RAILWAY_DEPLOYMENT.md](RAILWAY_DEPLOYMENT.md) for complete step-by-step guide**
+📖 **See [RAILWAY_QUICKSTART.md](RAILWAY_QUICKSTART.md) for step-by-step guide**
+
+🔧 **Having issues?** See [RAILWAY_TROUBLESHOOTING.md](RAILWAY_TROUBLESHOOTING.md) or [RAILWAY_QUICK_FIX.md](RAILWAY_QUICK_FIX.md)
 
 ### Alternative: Manual Deployment
 
