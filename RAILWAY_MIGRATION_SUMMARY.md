@@ -13,7 +13,6 @@ The TravelEase repository has been successfully reconfigured for **immediate dep
    {
      "$schema": "https://railway.app/railway.schema.json",
      "build": {
-       "builder": "NIXPACKS",
        "buildCommand": "npm run build"
      },
      "deploy": {
@@ -24,26 +23,26 @@ The TravelEase repository has been successfully reconfigured for **immediate dep
      }
    }
    ```
+   
+   Note: Builder auto-detection is used (Railway detects Next.js automatically)
 
 2. **Procfile** (15 bytes)
    ```
    web: npm start
    ```
 
-3. **nixpacks.toml** (150 bytes)
-   ```toml
-   [phases.setup]
-   nixPkgs = ["nodejs-20_x"]
-
-   [phases.install]
-   cmds = ["npm install"]
-
-   [phases.build]
-   cmds = ["npm run build"]
-
-   [start]
-   cmd = "npm start"
+3. **package.json** - Added Node.js version requirement
+   ```json
+   {
+     "engines": {
+       "node": ">=20.9.0",
+       "npm": ">=10.0.0"
+     }
+   }
    ```
+   
+   Railway auto-detects Next.js and uses the Node.js version specified in engines field.
+   This is simpler and more reliable than using nixpacks.toml.
 
 ### Documentation Files (2 files)
 

@@ -106,14 +106,18 @@ Error: Out of memory
 → Solution: Add "NODE_OPTIONS=--max_old_space_size=4096" variable
 
 Error: You are using Node.js 18.x.x. For Next.js, Node.js version ">=20.9.0" is required.
-→ Solution: Update nixpacks.toml to use nodejs-20_x (already fixed in this repo)
+→ Solution: Add engines field to package.json (already configured in this repo)
+
+Error: failed to solve: process "nix-env -if .nixpacks/..." did not complete successfully
+→ Solution: Remove nixpacks.toml, use package.json engines field (already configured)
 ```
 
 **Fix:**
 1. Test build locally: `npm run build`
-2. Verify Node.js version in nixpacks.toml is set to `nodejs-20_x` (required for Next.js 16+)
-3. Commit any fixes
-4. Redeploy on Railway (git push triggers auto-deploy)
+2. Verify package.json has engines field with Node.js >=20.9.0
+3. Remove custom nixpacks.toml if present (Railway auto-detects)
+4. Commit any fixes
+5. Redeploy on Railway (git push triggers auto-deploy)
 
 ### Issue 3: Database Connection Errors
 

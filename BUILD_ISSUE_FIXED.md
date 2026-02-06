@@ -1,6 +1,6 @@
-# 🔧 Railway Build Issue - FIXED
+# 🔧 Railway Build Issues - FIXED
 
-## Issue Reported
+## Issue 1: Node.js Version Incompatibility ✅ FIXED
 
 Railway deployment was failing with the following error during build:
 
@@ -9,32 +9,66 @@ You are using Node.js 18.20.5. For Next.js, Node.js version ">=20.9.0" is requir
 ERROR: failed to build: failed to solve: process "/bin/bash -ol pipefail -c npm run build" did not complete successfully: exit code: 1
 ```
 
-## Root Cause
+### Solution Applied (Issue 1)
 
-The `nixpacks.toml` configuration file specified Node.js 18:
-```toml
-[phases.setup]
-nixPkgs = ["nodejs-18_x"]  # ❌ Too old for Next.js 16
+Changed Node.js version in nixpacks.toml from 18 to 20.
+
+---
+
+## Issue 2: Nix Package Installation Failure ✅ FIXED
+
+After fixing Node.js version, a new error appeared during Nix package installation:
+
+```
+ERROR: failed to build: failed to solve: process "/bin/bash -ol pipefail -c nix-env -if .nixpacks/nixpkgs-ffeebf0acf3ae8b29f8c7049cd911b9636efd7e7.nix && nix-collect-garbage -d" did not complete successfully: exit code: 1
 ```
 
-However, **Next.js 16.1.6 requires Node.js >= 20.9.0** to run properly.
+### Solution Applied (Issue 2)
 
-## ✅ Solution Applied
+**Removed custom nixpacks.toml entirely** and switched to Railway's auto-detection:
 
-### 1. Updated nixpacks.toml
+1. ✅ Deleted `nixpacks.toml`
+2. ✅ Added `engines` field to `package.json` with Node.js 20 requirement
+3. ✅ Simplified `railway.json` to use auto-detection
 
-Changed Node.js version from 18 to 20:
-```toml
-[phases.setup]
-nixPkgs = ["nodejs-20_x"]  # ✅ Compatible with Next.js 16
+See [NIX_BUILD_ISSUE_FIXED.md](NIX_BUILD_ISSUE_FIXED.md) for complete details on Issue 2.
+
+---
+
+## Current Configuration
+
+## Current Configuration
+
+**package.json** - Node.js version requirement:
+```json
+{
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10.0.0"
+  }
+}
 ```
 
-### 2. Updated Documentation
+**railway.json** - Simplified configuration:
+```json
+{
+  "build": {
+    "buildCommand": "npm run build"
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "healthcheckPath": "/",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  }
+}
+```
 
-- **README.md**: Prerequisites now state "Node.js 20.9.0+" 
-- **SETUP.md**: Prerequisites updated to "Node.js 20.9.0+"
-- **RAILWAY_TROUBLESHOOTING.md**: Added this specific error and solution
-- **RAILWAY_MIGRATION_SUMMARY.md**: Updated example configuration
+**No nixpacks.toml** - Railway auto-detects Next.js and uses Node.js version from package.json
+
+---
+
+## Documentation Updates
 
 ## 🧪 Verification
 
