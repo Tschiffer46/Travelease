@@ -144,13 +144,19 @@ Key models:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Railway (Recommended)
 
-1. **Connect your repository** to Vercel
-2. **Configure environment variables** in Vercel dashboard
-3. **Deploy**: Vercel will automatically build and deploy
+**Quick deployment in 5 minutes!**
 
-### Manual Deployment
+1. **Sign up** at https://railway.app
+2. **Deploy from GitHub** - Select your repository
+3. **Add PostgreSQL** - Built-in database service
+4. **Set environment variables** - Add required variables
+5. **Deploy** - Automatic build and deployment
+
+📖 **See [RAILWAY_DEPLOYMENT.md](RAILWAY_DEPLOYMENT.md) for complete step-by-step guide**
+
+### Alternative: Manual Deployment
 
 ```bash
 # Build the application
@@ -159,6 +165,13 @@ npm run build
 # Start the production server
 npm start
 ```
+
+### Other Platforms
+
+The application can also be deployed to:
+- **Vercel** - See original configuration in `vercel.json`
+- **Heroku** - Use included `Procfile`
+- **Any Node.js host** - Standard Next.js deployment
 
 ## 🔧 Development
 

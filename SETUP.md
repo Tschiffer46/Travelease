@@ -164,62 +164,73 @@ The application will be available at http://localhost:3000
 
 > **Note**: Weather data requires a valid OpenWeatherMap API key. Without it, you'll see general recommendations.
 
-## Deployment to Vercel
+## Deployment to Railway
 
 ### Prerequisites
 
-- Vercel account (free tier available)
+- Railway account (free tier available at https://railway.app)
 - GitHub repository
 
-### Steps
+### Quick Start (5 minutes)
 
-1. **Push your code to GitHub**:
-```bash
-git add .
-git commit -m "Initial setup"
-git push origin main
-```
+1. **Go to Railway**:
+   - Visit https://railway.app/new
+   - Click "Deploy from GitHub repo"
+   - Select the Travelease repository
 
-2. **Connect to Vercel**:
-   - Go to https://vercel.com/new
-   - Import your GitHub repository
-   - Vercel will auto-detect it's a Next.js project
+2. **Add PostgreSQL**:
+   - Click "+ New" in project dashboard
+   - Select "Database" → "Add PostgreSQL"
+   - Railway automatically creates DATABASE_URL
 
 3. **Configure Environment Variables**:
    
-   In Vercel dashboard, go to Settings → Environment Variables and add:
+   In Railway dashboard, go to Variables tab:
    
-   ```
-   DATABASE_URL (your production PostgreSQL URL)
-   NEXTAUTH_URL (your Vercel app URL)
-   NEXTAUTH_SECRET (generate a new secret)
-   OPENWEATHER_API_KEY
-   STRIPE_SECRET_KEY (optional)
-   STRIPE_PUBLISHABLE_KEY (optional)
-   STRIPE_WEBHOOK_SECRET (optional)
+   ```env
+   DATABASE_URL=postgresql://...  (auto-generated)
+   NEXTAUTH_URL=https://your-app.up.railway.app
+   NEXTAUTH_SECRET=generate-with-openssl-rand-base64-32
+   OPENWEATHER_API_KEY=your-api-key
+   NODE_ENV=production
    ```
 
 4. **Deploy**:
    - Click "Deploy"
-   - Vercel will build and deploy your application
-   - You'll get a live URL (e.g., https://your-app.vercel.app)
+   - Wait 2-3 minutes for build
+   - Get your live URL
 
-5. **Initialize Production Database**:
-   
-   After deployment, run migrations:
+5. **Initialize Database**:
    ```bash
-   npx prisma db push
-   npx prisma db seed
+   # Install Railway CLI
+   npm i -g @railway/cli
+   
+   # Login and link
+   railway login
+   railway link
+   
+   # Initialize database
+   railway run npm run db:push
+   railway run npm run db:seed
    ```
+
+📖 **For detailed instructions, see [RAILWAY_DEPLOYMENT.md](RAILWAY_DEPLOYMENT.md)**
+
+### Alternative Deployment Options
+
+The app can also be deployed to:
+- **Vercel** - See `vercel.json` configuration
+- **Heroku** - Use the included `Procfile`
+- **Any Node.js hosting** - Standard Next.js deployment
 
 ### Recommended Database Providers
 
 For production PostgreSQL databases:
 
-- **Vercel Postgres**: Integrated with Vercel, easy setup
+- **Railway PostgreSQL**: Built-in with Railway, easiest setup
 - **Supabase**: Free tier with good performance
-- **Railway**: Simple PostgreSQL hosting
-- **Neon**: Serverless PostgreSQL
+- **Neon**: Serverless PostgreSQL with generous free tier
+- **Render**: Simple PostgreSQL hosting
 
 ## Troubleshooting
 
