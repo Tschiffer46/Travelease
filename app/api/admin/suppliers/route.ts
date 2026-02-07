@@ -5,9 +5,9 @@ import { prisma } from '@/lib/prisma';
 const supplierSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   contactPerson: z.string().optional(),
-  email: z.string().email().optional(),
+  email: z.string().email().optional().or(z.literal('')),
   phone: z.string().optional(),
-  website: z.string().url('Invalid website URL format').optional(),
+  website: z.string().url('Invalid website URL format').optional().or(z.literal('')),
   address: z.object({
     street: z.string(),
     city: z.string(),

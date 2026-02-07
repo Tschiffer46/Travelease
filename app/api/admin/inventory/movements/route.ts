@@ -52,6 +52,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Create stock movement and update product stock in a transaction
+    const updateData: { stock: number; status?: string } = { stock: newStock };
+    if (newStatus) {
+      updateData.status = newStatus;
+    }
+
     const [movement, updatedProduct] = await prisma.$transaction([
       prisma.stockMovement.create({
         data: validatedData,
@@ -63,10 +68,7 @@ export async function POST(request: NextRequest) {
       }),
       prisma.product.update({
         where: { id: validatedData.productId },
-        data: { 
-          stock: newStock,
-          status: newStatus
-        }
+        data: updateData
       })
     ]);
 

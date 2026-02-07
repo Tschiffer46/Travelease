@@ -175,7 +175,7 @@ export default function EditProductPage() {
           stock: parseInt(formData.stock) || 0,
           minOrderQuantity: parseInt(formData.minOrderQuantity) || 1,
           maxOrderQuantity: parseInt(formData.maxOrderQuantity) || 999,
-          shelfLife: formData.shelfLife ? parseInt(formData.shelfLife) : undefined,
+          shelfLife: formData.shelfLife || undefined,
         }),
       });
 

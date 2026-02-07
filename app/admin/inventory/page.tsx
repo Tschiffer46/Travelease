@@ -19,6 +19,23 @@ interface StockMovement {
   product: Product;
 }
 
+const getMovementTypeColor = (type: string) => {
+  switch (type) {
+    case 'IN':
+      return 'bg-green-100 text-green-800';
+    case 'OUT':
+      return 'bg-blue-100 text-blue-800';
+    case 'DAMAGE':
+      return 'bg-red-100 text-red-800';
+    case 'RETURN':
+      return 'bg-purple-100 text-purple-800';
+    case 'ADJUSTMENT':
+      return 'bg-yellow-100 text-yellow-800';
+    default:
+      return 'bg-gray-100 text-gray-800';
+  }
+};
+
 export default function InventoryPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [movements, setMovements] = useState<StockMovement[]>([]);
@@ -266,15 +283,7 @@ export default function InventoryPage() {
                           {movement.product.name}
                         </td>
                         <td className="px-6 py-4">
-                          <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            movement.type === 'IN'
-                              ? 'bg-green-100 text-green-800'
-                              : movement.type === 'OUT'
-                              ? 'bg-blue-100 text-blue-800'
-                              : movement.type === 'DAMAGE'
-                              ? 'bg-red-100 text-red-800'
-                              : 'bg-gray-100 text-gray-800'
-                          }`}>
+                          <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getMovementTypeColor(movement.type)}`}>
                             {movement.type}
                           </span>
                         </td>
