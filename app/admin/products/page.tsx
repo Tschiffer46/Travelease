@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
 import AdminLayout from '../components/AdminLayout';
 
 interface Product {
@@ -19,9 +19,8 @@ interface Product {
   sizeInMl?: number;
 }
 
-export default function AdminProductsPage() {
+function ProductsContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -363,5 +362,17 @@ export default function AdminProductsPage() {
         )}
       </div>
     </AdminLayout>
+  );
+}
+
+export default function AdminProductsPage() {
+  return (
+    <Suspense fallback={
+      <AdminLayout title="Products">
+        <div className="text-center py-12">Loading...</div>
+      </AdminLayout>
+    }>
+      <ProductsContent />
+    </Suspense>
   );
 }

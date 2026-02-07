@@ -29,7 +29,7 @@ export default async function AdminDashboard() {
       where: { stock: { lt: 10 } },
       take: 5,
       orderBy: { stock: 'asc' },
-      include: { category: true, brand: true },
+      include: { categoryRel: true, brandRel: true },
     }),
     prisma.stockMovement.findMany({
       take: 10,
@@ -111,7 +111,7 @@ export default async function AdminDashboard() {
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{product.name}</p>
                       <p className="text-xs text-gray-500">
-                        {product.brand?.name} • {product.category?.name}
+                        {product.brandRel?.name || product.brand} • {product.categoryRel?.name || product.category}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">

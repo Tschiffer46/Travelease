@@ -84,13 +84,11 @@ export default function EditProductPage() {
 
   const fetchData = async () => {
     try {
-      const [productRes, categoriesRes, brandsRes, suppliersRes, priceHistoryRes, stockMovementsRes] = await Promise.all([
+      const [productRes, categoriesRes, brandsRes, suppliersRes] = await Promise.all([
         fetch(`/api/admin/products/${productId}`),
         fetch('/api/admin/categories'),
         fetch('/api/admin/brands'),
         fetch('/api/admin/suppliers'),
-        fetch(`/api/admin/products/${productId}/price-history`).catch(() => ({ ok: false })),
-        fetch(`/api/admin/products/${productId}/stock-movements`).catch(() => ({ ok: false })),
       ]);
 
       if (productRes.ok) {
@@ -130,8 +128,21 @@ export default function EditProductPage() {
       if (categoriesRes.ok) setCategories(await categoriesRes.json());
       if (brandsRes.ok) setBrands(await brandsRes.json());
       if (suppliersRes.ok) setSuppliers(await suppliersRes.json());
-      if (priceHistoryRes.ok) setPriceHistory(await priceHistoryRes.json());
-      if (stockMovementsRes.ok) setStockMovements(await stockMovementsRes.json());
+
+      // Fetch price history and stock movements separately (might not exist yet)
+      try {
+        const priceHistoryRes = await fetch(`/api/admin/products/${productId}/price-history`);
+        if (priceHistoryRes.ok) setPriceHistory(await priceHistoryRes.json());
+      } catch (e) {
+        console.log('Price history not available');
+      }
+
+      try {
+        const stockMovementsRes = await fetch(`/api/admin/products/${productId}/stock-movements`);
+        if (stockMovementsRes.ok) setStockMovements(await stockMovementsRes.json());
+      } catch (e) {
+        console.log('Stock movements not available');
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
