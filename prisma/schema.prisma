@@ -13,25 +13,185 @@ datasource db {
 model Product {
   id          String   @id @default(cuid())
   name        String
-  brand       String
+  brand       String   // Keep for backward compatibility
   description String   @db.Text
   size        String   // e.g., "50ml", "100ml"
   sizeInMl    Float?   // Size in milliliters for liquids
   isLiquid    Boolean  @default(false)
   price       Float
   currency    String   @default("SEK")
-  category    String
+  category    String   // Keep for backward compatibility
   imageUrl    String?
   images      String[] @default([])
   stock       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   
-  cartItems   CartItem[]
-  orderItems  OrderItem[]
+  // New PIM fields
+  sku                String   @unique
+  ean                String?
+  slug               String   @unique
+  shortDescription   String?
+  longDescription    String?  @db.Text
+  status             String   @default("draft") // draft, active, discontinued, out_of_stock
+  featured           Boolean  @default(false)
+  tags               String[] @default([])
+  weight             Float?   // in grams
+  dimensions         Json?    // { width, height, depth } in mm
+  costPrice          Float?   // admin-only, never shown to customers
+  compareAtPrice     Float?   // original/compare-at price for discounts
+  taxRate            Float    @default(25) // VAT rate (25% in Sweden)
+  minOrderQuantity   Int      @default(1)
+  maxOrderQuantity   Int?     // null means no limit
+  countryOfOrigin    String?
+  ingredients        String?  @db.Text
+  warnings           String?
+  shelfLife          String?  // e.g., "24 months", "12M after opening"
+  isActive           Boolean  @default(true)
+  sortOrder          Int      @default(0)
+  metaTitle          String?
+  metaDescription    String?
+  
+  // Relations
+  supplierId         String?
+  supplier           Supplier?         @relation(fields: [supplierId], references: [id])
+  categoryId         String?
+  categoryRel        Category?         @relation(fields: [categoryId], references: [id])
+  brandId            String?
+  brandRel           Brand?            @relation(fields: [brandId], references: [id])
+  
+  productImages      ProductImage[]
+  volumeDiscounts    VolumeDiscount[]
+  priceHistory       PriceHistory[]
+  stockMovements     StockMovement[]
+  cartItems          CartItem[]
+  orderItems         OrderItem[]
   
   @@index([category])
   @@index([brand])
+  @@index([status])
+  @@index([featured])
+  @@index([supplierId])
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([sku])
+  @@index([slug])
+}
+
+model Supplier {
+  id              String    @id @default(cuid())
+  name            String
+  contactPerson   String?
+  email           String?
+  phone           String?
+  website         String?
+  address         Json?     // { street, city, postalCode, country }
+  paymentTerms    String?   // e.g., "Net 30", "Net 60"
+  leadTimeDays    Int?      // Average delivery time
+  notes           String?   @db.Text
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  products        Product[]
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?    @db.Text
+  parentId    String?
+  imageUrl    String?
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryTree")
+  products    Product[]
+  
+  @@index([slug])
+  @@index([parentId])
+}
+
+model Brand {
+  id              String    @id @default(cuid())
+  name            String
+  slug            String    @unique
+  description     String?   @db.Text
+  website         String?
+  logoUrl         String?
+  countryOfOrigin String?
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  products        Product[]
+  
+  @@index([slug])
+}
+
+model ProductImage {
+  id          String   @id @default(cuid())
+  productId   String
+  url         String
+  altText     String?
+  sortOrder   Int      @default(0)
+  isPrimary   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+}
+
+model VolumeDiscount {
+  id              String   @id @default(cuid())
+  productId       String
+  minQuantity     Int      // e.g., 3
+  maxQuantity     Int?     // null means "3+"
+  discountPercent Float?   // e.g., 10.0 for 10%
+  discountPrice   Float?   // alternative: fixed price instead of percent
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  product         Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+}
+
+model PriceHistory {
+  id          String   @id @default(cuid())
+  productId   String
+  price       Float
+  costPrice   Float?
+  changedBy   String?  // who changed it
+  reason      String?  // e.g., "Seasonal promotion"
+  createdAt   DateTime @default(now())
+  
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+  @@index([createdAt])
+}
+
+model StockMovement {
+  id          String   @id @default(cuid())
+  productId   String
+  type        String   // purchase, sale, adjustment, return, write_off
+  quantity    Int      // positive for additions, negative for removals
+  reference   String?  // order ID, PO number, etc.
+  notes       String?
+  createdAt   DateTime @default(now())
+  
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+  @@index([type])
+  @@index([createdAt])
 }
 
 model User {
