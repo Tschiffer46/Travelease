@@ -42,6 +42,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Determine new status based on stock level
+    let newStatus: string | undefined;
+    if (newStock === 0) {
+      newStatus = 'out_of_stock';
+    } else if (product.stock === 0 && newStock > 0) {
+      // If stock was 0 and now increasing, set back to active
+      newStatus = 'active';
+    }
+
     // Create stock movement and update product stock in a transaction
     const [movement, updatedProduct] = await prisma.$transaction([
       prisma.stockMovement.create({
@@ -56,8 +65,7 @@ export async function POST(request: NextRequest) {
         where: { id: validatedData.productId },
         data: { 
           stock: newStock,
-          // Update status to out_of_stock if stock reaches 0
-          status: newStock === 0 ? 'out_of_stock' : undefined
+          status: newStatus
         }
       })
     ]);

@@ -3,6 +3,9 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET() {
   try {
+    const DAYS_BACK = 30; // Configurable reporting period
+    const startDate = new Date(Date.now() - DAYS_BACK * 24 * 60 * 60 * 1000);
+
     const [
       totalProducts,
       activeProducts,
@@ -20,7 +23,7 @@ export async function GET() {
       prisma.order.findMany({
         where: {
           status: { in: ['pending', 'processing', 'shipped'] },
-          createdAt: { gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
+          createdAt: { gte: startDate }
         },
         select: { total: true, createdAt: true }
       }),

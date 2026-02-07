@@ -60,6 +60,10 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'createdAt';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
 
+    // Validate sortBy to prevent invalid field access
+    const allowedSortFields = ['createdAt', 'updatedAt', 'name', 'price', 'stock', 'sku'];
+    const validSortBy = allowedSortFields.includes(sortBy) ? sortBy : 'createdAt';
+
     const skip = (page - 1) * limit;
 
     const where: any = {};
@@ -89,7 +93,7 @@ export async function GET(request: NextRequest) {
         where,
         skip,
         take: limit,
-        orderBy: { [sortBy]: sortOrder },
+        orderBy: { [validSortBy]: sortOrder },
         include: {
           supplier: { select: { id: true, name: true } },
           categoryRel: { select: { id: true, name: true, slug: true } },

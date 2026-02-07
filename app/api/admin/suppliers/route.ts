@@ -7,7 +7,7 @@ const supplierSchema = z.object({
   contactPerson: z.string().optional(),
   email: z.string().email().optional(),
   phone: z.string().optional(),
-  website: z.string().url().optional(),
+  website: z.string().url('Invalid website URL format').optional(),
   address: z.object({
     street: z.string(),
     city: z.string(),
