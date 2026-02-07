@@ -12,10 +12,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<<<<<<< HEAD
-    <html lang="en">
-      <body className="antialiased">
-=======
     <html lang="en" style={{ 
       '--font-sans': 'Inter, system-ui, sans-serif',
       '--font-serif': 'DM Serif Display, Georgia, serif'
@@ -26,7 +22,6 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased font-sans">
->>>>>>> copilot/create-ecommerce-website
         {children}
       </body>
     </html>

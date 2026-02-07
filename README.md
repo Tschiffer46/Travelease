@@ -1,94 +1,3 @@
-<<<<<<< HEAD
-# TravelEase - Travel-Sized Beauty & Hygiene E-commerce Platform
-
-## 🚨 NEVER USED TERMINAL BEFORE? START HERE! 🚨
-
-### 👶 **[COMPLETE BEGINNERS GUIDE](COMPLETE_BEGINNERS_GUIDE.md)** ⭐⭐⭐
-
-**Written for someone who has NEVER used Terminal/Command Line before!**
-
-This guide explains:
-- ✅ **What Terminal is** (it's NOT your web browser!)
-- ✅ **WHERE to find Terminal** on your Mac/Windows/Linux
-- ✅ **WHAT Terminal looks like** when you open it
-- ✅ **WHERE to type commands** (exactly where to click)
-- ✅ **Step-by-step instructions** with plain English explanations
-- ✅ **Troubleshooting** for common beginner mistakes
-
-**If you're confused about "where do I type this?" - read the Complete Beginners Guide first!**
-
----
-
-## 🚨 SITE DEPLOYED BUT LOOKS BAD? (For Those Who Know Terminal)
-
-**If your Railway site is live but shows no product images or looks unprofessional:**
-
-### ⚠️ Railway Instructions Updated (January 2026)
-
-**If you found the Railway dashboard instructions invalid, they've been FIXED!**
-
-👉 **[READ ISSUE_RESOLVED.md](ISSUE_RESOLVED.md)** ⭐ **START HERE**
-
-👉 **[READ UPDATED_INSTRUCTIONS.md](UPDATED_INSTRUCTIONS.md)** - Complete guide
-
-**Quick Fix Using Railway CLI (5 min):**
-```bash
-npm install -g @railway/cli
-railway login && railway link
-railway run npm run db:seed
-```
-
-**Note:** Railway CLI is now the only recommended method. Dashboard UI changes frequently, so CLI is more reliable.
-
-**Other Helpful Guides:**
-- **[COMPLETE_BEGINNERS_GUIDE.md](COMPLETE_BEGINNERS_GUIDE.md)** - For absolute beginners (NEVER used Terminal)
-- [FIX_YOUR_SITE_NOW.md](FIX_YOUR_SITE_NOW.md) - Environment variables + database (now corrected)
-- [DATABASE_FIX_GUIDE.md](DATABASE_FIX_GUIDE.md) - Database details (now corrected)
-- [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) - Environment help
-- [SUMMARY.md](SUMMARY.md) - Complete overview
-
----
-
-A modern, full-featured e-commerce platform built with Next.js 14+ for selling travel-sized hygiene and beauty products, specifically designed for Nordic travelers.
-
-## 🌟 Features
-
-### Core E-commerce
-- **Product Catalog**: Browse 100+ travel-sized products across 4 categories
-- **Smart Search & Filtering**: Find products by category, brand, price range
-- **Shopping Cart**: Persistent cart with session management
-- **Responsive Design**: Mobile-first, Scandinavian luxury aesthetic
-
-### Unique Features
-- **1-Liter Liquid Calculator**: Real-time TSA/EU compliance tracking
-  - Visual indicator of total liquid volume
-  - Warnings for exceeding 100ml per container or 1L total
-  - Automatic liquid vs non-liquid product detection
-
-- **Climate-Based Recommendations** (Planned)
-  - Natural language destination input
-  - Weather API integration
-  - Smart product recommendations based on climate
-
-- **Multi-Currency Support** (Planned)
-  - SEK, NOK, DKK support
-  - Automatic currency detection
-
-### Admin Features (Planned)
-- Product management (CRUD operations)
-- Order management
-- Analytics dashboard
-- Supplier integration
-
-## 🛠️ Technology Stack
-
-- **Frontend**: Next.js 14+ (App Router), TypeScript, React 19
-- **Styling**: Tailwind CSS v4
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js (Planned)
-- **Payments**: Stripe (Planned)
-- **Deployment**: Vercel-ready
-=======
 # TravelEase - Premium Travel-Sized Beauty & Hygiene E-commerce
 
 A sophisticated Next.js e-commerce platform for travel-sized beauty and hygiene products, designed for Nordic travelers with a clean Scandinavian aesthetic.
@@ -133,24 +42,15 @@ The design follows a sophisticated Scandinavian minimalist aesthetic inspired by
   - Body: Inter for clarity and readability
 - **Spacing**: Generous whitespace for a premium feel
 - **Interactions**: Subtle, smooth animations that feel natural
->>>>>>> copilot/create-ecommerce-website
 
 ## 📦 Installation
 
 ### Prerequisites
-<<<<<<< HEAD
-- Node.js 20.9.0+ (required for Next.js 16)
-- PostgreSQL database
-- npm or yarn
-
-### Setup Steps
-=======
 - Node.js 20.9.0 or higher
 - PostgreSQL database
 - npm or yarn
 
 ### Quick Start
->>>>>>> copilot/create-ecommerce-website
 
 1. **Clone the repository**
    ```bash
@@ -175,22 +75,11 @@ The design follows a sophisticated Scandinavian minimalist aesthetic inspired by
    NEXTAUTH_SECRET="your-secret-key"
    STRIPE_SECRET_KEY="sk_test_..."
    STRIPE_PUBLISHABLE_KEY="pk_test_..."
-<<<<<<< HEAD
-   OPENWEATHER_API_KEY="your-api-key"
-=======
->>>>>>> copilot/create-ecommerce-website
    ```
 
 4. **Set up the database**
    ```bash
-<<<<<<< HEAD
-   # Push the schema to your database
    npm run db:push
-   
-   # Seed the database with sample products
-=======
-   npm run db:push
->>>>>>> copilot/create-ecommerce-website
    npm run db:seed
    ```
 
@@ -206,90 +95,6 @@ The design follows a sophisticated Scandinavian minimalist aesthetic inspired by
 
 ```
 Travelease/
-<<<<<<< HEAD
-├── app/                      # Next.js app directory
-│   ├── api/                  # API routes
-│   │   └── cart/            # Cart management endpoints
-│   ├── products/            # Product pages
-│   │   ├── [id]/           # Product detail page
-│   │   └── page.tsx        # Product listing
-│   ├── cart/                # Shopping cart page
-│   ├── checkout/            # Checkout flow (planned)
-│   ├── admin/               # Admin dashboard (planned)
-│   ├── layout.tsx           # Root layout
-│   ├── page.tsx             # Homepage
-│   └── globals.css          # Global styles
-├── components/              # Reusable React components
-│   └── AddToCartButton.tsx
-├── lib/                     # Utility functions
-│   ├── prisma.ts           # Prisma client
-│   └── utils.ts            # Helper functions
-├── prisma/                  # Database schema and migrations
-│   ├── schema.prisma       # Database schema
-│   └── seed.ts             # Database seeding script
-├── public/                  # Static assets
-├── next.config.ts          # Next.js configuration
-├── tailwind.config.ts      # Tailwind CSS configuration
-└── tsconfig.json           # TypeScript configuration
-```
-
-## 🎨 Design System
-
-The application follows a Scandinavian luxury aesthetic:
-
-- **Colors**: 
-  - Neutral tones (whites, grays, beiges)
-  - Accent: Warm earth tones
-- **Typography**: Clean, modern sans-serif (Geist)
-- **Layout**: Spacious, minimalist, high contrast
-- **Mobile-first**: Fully responsive across all devices
-
-## 📊 Database Schema
-
-Key models:
-- **Product**: Product catalog with liquid tracking
-- **Cart & CartItem**: Session-based shopping cart
-- **Order & OrderItem**: Order management (planned)
-- **User**: User authentication (planned)
-- **Destination**: Saved travel destinations (planned)
-
-## 🚀 Deployment
-
-### Railway (Recommended)
-
-**Quick deployment in 5 minutes!**
-
-1. **Sign up** at https://railway.app
-2. **Deploy from GitHub** - Select your repository
-3. **Add PostgreSQL** - Built-in database service
-4. **Set environment variables** - Add required variables
-5. **Deploy** - Automatic build and deployment
-
-📖 **See [RAILWAY_QUICKSTART.md](RAILWAY_QUICKSTART.md) for step-by-step guide**
-
-🔧 **Having issues?** See [RAILWAY_TROUBLESHOOTING.md](RAILWAY_TROUBLESHOOTING.md) or [RAILWAY_QUICK_FIX.md](RAILWAY_QUICK_FIX.md)
-
-### Alternative: Manual Deployment
-
-```bash
-# Build the application
-npm run build
-
-# Start the production server
-npm start
-```
-
-### Other Platforms
-
-The application can also be deployed to:
-- **Vercel** - See original configuration in `vercel.json`
-- **Heroku** - Use included `Procfile`
-- **Any Node.js host** - Standard Next.js deployment
-
-## 🔧 Development
-
-### Available Scripts
-=======
 ├── app/                    # Next.js App Router
 │   ├── api/               # API routes
 │   ├── products/          # Product pages
@@ -332,39 +137,13 @@ TravelEase can also be deployed to:
 - Any Node.js hosting platform
 
 ## 📝 Available Scripts
->>>>>>> copilot/create-ecommerce-website
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm start` - Start production server
-<<<<<<< HEAD
-- `npm run lint` - Run ESLint
 - `npm run db:push` - Push schema changes to database
 - `npm run db:seed` - Seed database with sample data
 
-### Adding New Products
-
-Run the seed script or use the admin dashboard (coming soon):
-
-```bash
-npm run db:seed
-```
-
-## 🌐 Localization
-
-Currently supports:
-- English (default)
-
-Planned:
-- Swedish (Svenska)
-- Norwegian (Norsk)
-- Danish (Dansk)
-
-=======
-- `npm run db:push` - Push schema changes to database
-- `npm run db:seed` - Seed database with sample data
-
->>>>>>> copilot/create-ecommerce-website
 ## 🔐 Security
 
 - Environment variables for sensitive data
@@ -373,11 +152,7 @@ Planned:
 - Input validation with Zod
 - SQL injection protection via Prisma
 
-<<<<<<< HEAD
-## 📱 Browser Support
-=======
 ## 🌐 Browser Support
->>>>>>> copilot/create-ecommerce-website
 
 - Chrome (latest)
 - Firefox (latest)
@@ -388,15 +163,9 @@ Planned:
 ## 🤝 Contributing
 
 1. Fork the repository
-<<<<<<< HEAD
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-=======
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
->>>>>>> copilot/create-ecommerce-website
 5. Open a Pull Request
 
 ## 📄 License
@@ -406,18 +175,6 @@ ISC License - see LICENSE file for details
 ## 🙏 Acknowledgments
 
 - Built with [Next.js](https://nextjs.org/)
-<<<<<<< HEAD
-- UI components styled with [Tailwind CSS](https://tailwindcss.com/)
-- Database management with [Prisma](https://www.prisma.io/)
-
-## 📧 Contact
-
-For questions or support, please open an issue on GitHub.
-
----
-
-**Note**: This is an MVP (Minimum Viable Product). Some features are still in development. See the project roadmap for upcoming features.
-=======
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Database powered by [Prisma](https://www.prisma.io/)
 - Icons from [Lucide](https://lucide.dev/)
@@ -426,4 +183,3 @@ For questions or support, please open an issue on GitHub.
 ---
 
 **Made with ❤️ for travelers who pack smart**
->>>>>>> copilot/create-ecommerce-website
