@@ -17,9 +17,6 @@ import {
   Award,
   ArrowRight,
   Mail,
-  Facebook,
-  Instagram,
-  Twitter,
   CreditCard,
   ShieldCheck
 } from 'lucide-react';
@@ -243,17 +240,7 @@ export default function Home() {
               <p className="text-gray-400 mb-6">
                 Premium travel-sized products for modern travelers. Pack smart, travel light.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Facebook">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Instagram">
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Twitter">
-                  <Twitter className="w-5 h-5" />
-                </a>
-              </div>
+              {/* Social links removed until actual profiles are available */}
             </div>
 
             {/* Shop */}
@@ -282,16 +269,17 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-4">Stay Updated</h4>
               <p className="text-gray-400 mb-4">Get travel tips and exclusive offers</p>
-              <div className="flex gap-2">
+              <form onSubmit={(e) => { e.preventDefault(); /* Newsletter signup will be implemented */ }} className="flex gap-2">
                 <input 
                   type="email" 
                   placeholder="Your email" 
+                  required
                   className="flex-1 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-primary-400 transition-colors"
                 />
-                <button className="w-12 h-12 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Subscribe">
+                <button type="submit" className="w-12 h-12 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Subscribe">
                   <Mail className="w-5 h-5" />
                 </button>
-              </div>
+              </form>
             </div>
           </div>
 
