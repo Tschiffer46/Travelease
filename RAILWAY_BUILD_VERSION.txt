@@ -1,5 +1,0 @@
-BUILD_VERSION: 1.0.1
-BUILD_DATE: 2026-02-06T15:43:00Z
-UI_VERSION: Modern Scandinavian Design v2
-CHANGES: Complete UI redesign with Navigation component, modern homepage, products page, cart page
-STATUS: Force rebuild to deploy new UI changes
