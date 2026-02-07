@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TravelEase - Travel-Sized Beauty & Hygiene E-commerce Platform
 
 ## 🚨 NEVER USED TERMINAL BEFORE? START HERE! 🚨
@@ -87,15 +88,69 @@ A modern, full-featured e-commerce platform built with Next.js 14+ for selling t
 - **Authentication**: NextAuth.js (Planned)
 - **Payments**: Stripe (Planned)
 - **Deployment**: Vercel-ready
+=======
+# TravelEase - Premium Travel-Sized Beauty & Hygiene E-commerce
+
+A sophisticated Next.js e-commerce platform for travel-sized beauty and hygiene products, designed for Nordic travelers with a clean Scandinavian aesthetic.
+
+![TravelEase Homepage](https://github.com/user-attachments/assets/b9ab4d7f-e302-4db5-a6cf-8fb2253ef669)
+
+## ✨ Features
+
+### Core E-commerce Functionality
+- **Product Catalog**: Browse 100+ travel-sized products across 4 categories
+- **Smart Search & Filtering**: Filter by category, brand, and price range
+- **Shopping Cart**: Persistent cart with session management
+- **Responsive Design**: Mobile-first, works beautifully on all devices
+
+### Unique Travel Features
+- **TSA Liquid Calculator**: Real-time tracking of liquid volume to stay compliant with TSA/EU 1L limits
+- **Climate-Based Recommendations**: Get personalized product suggestions based on your destination's weather
+- **Travel-Sized Focus**: Every product is optimized for carry-on luggage
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js 16 (App Router) with React 19
+- **Styling**: Tailwind CSS v4 with custom Scandinavian design system
+- **Animations**: Framer Motion for smooth, elegant transitions
+- **Icons**: Lucide React for consistent, beautiful iconography
+- **Database**: PostgreSQL with Prisma ORM
+- **Type Safety**: TypeScript throughout
+- **Authentication**: NextAuth.js (planned)
+- **Payments**: Stripe integration (planned)
+
+## 🎨 Design System
+
+The design follows a sophisticated Scandinavian minimalist aesthetic inspired by premium brands like Aesop and Muji:
+
+- **Colors**: 
+  - Primary: Deep ocean blue (#1B4965)
+  - Accent: Warm sand/gold (#DDA15E)
+  - Background: Warm whites and subtle grays
+  - Text: Rich charcoal tones
+- **Typography**: 
+  - Headings: DM Serif Display for elegance
+  - Body: Inter for clarity and readability
+- **Spacing**: Generous whitespace for a premium feel
+- **Interactions**: Subtle, smooth animations that feel natural
+>>>>>>> copilot/create-ecommerce-website
 
 ## 📦 Installation
 
 ### Prerequisites
+<<<<<<< HEAD
 - Node.js 20.9.0+ (required for Next.js 16)
 - PostgreSQL database
 - npm or yarn
 
 ### Setup Steps
+=======
+- Node.js 20.9.0 or higher
+- PostgreSQL database
+- npm or yarn
+
+### Quick Start
+>>>>>>> copilot/create-ecommerce-website
 
 1. **Clone the repository**
    ```bash
@@ -120,15 +175,22 @@ A modern, full-featured e-commerce platform built with Next.js 14+ for selling t
    NEXTAUTH_SECRET="your-secret-key"
    STRIPE_SECRET_KEY="sk_test_..."
    STRIPE_PUBLISHABLE_KEY="pk_test_..."
+<<<<<<< HEAD
    OPENWEATHER_API_KEY="your-api-key"
+=======
+>>>>>>> copilot/create-ecommerce-website
    ```
 
 4. **Set up the database**
    ```bash
+<<<<<<< HEAD
    # Push the schema to your database
    npm run db:push
    
    # Seed the database with sample products
+=======
+   npm run db:push
+>>>>>>> copilot/create-ecommerce-website
    npm run db:seed
    ```
 
@@ -144,6 +206,7 @@ A modern, full-featured e-commerce platform built with Next.js 14+ for selling t
 
 ```
 Travelease/
+<<<<<<< HEAD
 ├── app/                      # Next.js app directory
 │   ├── api/                  # API routes
 │   │   └── cart/            # Cart management endpoints
@@ -226,10 +289,55 @@ The application can also be deployed to:
 ## 🔧 Development
 
 ### Available Scripts
+=======
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   ├── products/          # Product pages
+│   ├── cart/              # Shopping cart
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Homepage
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── ui/               # Reusable UI components
+│   │   ├── Button.tsx    # Button with variants
+│   │   ├── Card.tsx      # Card component
+│   │   ├── Badge.tsx     # Badge/tag component
+│   │   └── Container.tsx # Layout container
+│   ├── Navigation.tsx     # Main navigation
+│   └── ...
+├── lib/                   # Utility functions
+├── prisma/               # Database schema
+│   ├── schema.prisma     # Prisma schema
+│   └── seed.ts           # Database seeding
+├── public/               # Static assets
+└── tailwind.config.ts    # Tailwind configuration
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy TravelEase is using [Vercel](https://vercel.com):
+
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Add environment variables
+4. Deploy!
+
+### Alternative Platforms
+
+TravelEase can also be deployed to:
+- Railway
+- Heroku
+- Any Node.js hosting platform
+
+## 📝 Available Scripts
+>>>>>>> copilot/create-ecommerce-website
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm start` - Start production server
+<<<<<<< HEAD
 - `npm run lint` - Run ESLint
 - `npm run db:push` - Push schema changes to database
 - `npm run db:seed` - Seed database with sample data
@@ -252,6 +360,11 @@ Planned:
 - Norwegian (Norsk)
 - Danish (Dansk)
 
+=======
+- `npm run db:push` - Push schema changes to database
+- `npm run db:seed` - Seed database with sample data
+
+>>>>>>> copilot/create-ecommerce-website
 ## 🔐 Security
 
 - Environment variables for sensitive data
@@ -260,7 +373,11 @@ Planned:
 - Input validation with Zod
 - SQL injection protection via Prisma
 
+<<<<<<< HEAD
 ## 📱 Browser Support
+=======
+## 🌐 Browser Support
+>>>>>>> copilot/create-ecommerce-website
 
 - Chrome (latest)
 - Firefox (latest)
@@ -271,9 +388,15 @@ Planned:
 ## 🤝 Contributing
 
 1. Fork the repository
+<<<<<<< HEAD
 2. Create a feature branch
 3. Commit your changes
 4. Push to the branch
+=======
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+>>>>>>> copilot/create-ecommerce-website
 5. Open a Pull Request
 
 ## 📄 License
@@ -283,6 +406,7 @@ ISC License - see LICENSE file for details
 ## 🙏 Acknowledgments
 
 - Built with [Next.js](https://nextjs.org/)
+<<<<<<< HEAD
 - UI components styled with [Tailwind CSS](https://tailwindcss.com/)
 - Database management with [Prisma](https://www.prisma.io/)
 
@@ -293,3 +417,13 @@ For questions or support, please open an issue on GitHub.
 ---
 
 **Note**: This is an MVP (Minimum Viable Product). Some features are still in development. See the project roadmap for upcoming features.
+=======
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Database powered by [Prisma](https://www.prisma.io/)
+- Icons from [Lucide](https://lucide.dev/)
+- Animations by [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+**Made with ❤️ for travelers who pack smart**
+>>>>>>> copilot/create-ecommerce-website
