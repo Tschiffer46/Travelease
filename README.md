@@ -1,184 +1,118 @@
-# TravelEase - Premium Travel-Sized Beauty & Hygiene E-commerce
+# TravelEase — Premium Travel-Sized Beauty & Hygiene E-commerce
 
-A sophisticated Next.js e-commerce platform for travel-sized beauty and hygiene products, designed for Nordic travelers with a clean Scandinavian aesthetic.
+A full-stack Next.js e-commerce platform for travel-sized beauty and hygiene products, designed for Nordic travelers with a clean Scandinavian aesthetic. Deployed on **Railway**.
 
 ![TravelEase Homepage](https://github.com/user-attachments/assets/b9ab4d7f-e302-4db5-a6cf-8fb2253ef669)
 
 ## ✨ Features
 
-### Core E-commerce Functionality
-- **Product Catalog**: Browse 100+ travel-sized products across 4 categories
-- **Smart Search & Filtering**: Filter by category, brand, and price range
-- **Shopping Cart**: Persistent cart with session management
-- **Responsive Design**: Mobile-first, works beautifully on all devices
+### Core E-commerce
+- **Product Catalog** — 100+ travel-sized products with filtering by category, brand, and price
+- **PIM System** — full Product Information Management admin panel (SKU, EAN, slug, SEO meta, cost price, tax rate, volume discounts, price history, stock movements)
+- **Shopping Cart** — persistent cart with session and user support
+- **Admin Panel** — manage products, suppliers, brands, and categories at `/admin`
 
-### Unique Travel Features
-- **TSA Liquid Calculator**: Real-time tracking of liquid volume to stay compliant with TSA/EU 1L limits
-- **Climate-Based Recommendations**: Get personalized product suggestions based on your destination's weather
-- **Travel-Sized Focus**: Every product is optimized for carry-on luggage
+### Travel-Specific
+- **TSA Liquid Calculator** — real-time tracking of liquid volume against TSA/EU 1 L limits
+- **Climate-Based Recommendations** — personalised product suggestions via OpenWeather API
+- **Destination Inspiration** — curated destination section on the homepage
 
-## 🛠️ Technology Stack
+### In Progress
+- Full Stripe checkout flow
+- Complete order management UI
+- Customer-facing sign-in / sign-up pages
 
-- **Frontend**: Next.js 16 (App Router) with React 19
-- **Styling**: Tailwind CSS v4 with custom Scandinavian design system
-- **Animations**: Framer Motion for smooth, elegant transitions
-- **Icons**: Lucide React for consistent, beautiful iconography
-- **Database**: PostgreSQL with Prisma ORM
-- **Type Safety**: TypeScript throughout
-- **Authentication**: NextAuth.js (planned)
-- **Payments**: Stripe integration (planned)
+## 🛠️ Tech Stack
 
-## 🎨 Design System
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router), React 19, TypeScript |
+| Styling | Tailwind CSS v4, Framer Motion, Lucide React |
+| Database | PostgreSQL + Prisma ORM v5 |
+| Auth | NextAuth.js v4 — installed, schema live |
+| Payments | Stripe v20 — installed, checkout in progress |
+| Weather | OpenWeather API |
+| Utilities | Zod, clsx, tailwind-merge |
 
-The design follows a sophisticated Scandinavian minimalist aesthetic inspired by premium brands like Aesop and Muji:
+## 🗂️ App Routes
 
-- **Colors**: 
-  - Primary: Deep ocean blue (#1B4965)
-  - Accent: Warm sand/gold (#DDA15E)
-  - Background: Warm whites and subtle grays
-  - Text: Rich charcoal tones
-- **Typography**: 
-  - Headings: DM Serif Display for elegance
-  - Body: Inter for clarity and readability
-- **Spacing**: Generous whitespace for a premium feel
-- **Interactions**: Subtle, smooth animations that feel natural
+| Route | Description |
+|---|---|
+| `/` | Homepage (Hero, Featured Products, Shop Section, Destination Inspiration, Airport Rules) |
+| `/products` | Product catalog with filtering |
+| `/cart` | Shopping cart |
+| `/admin` | Admin / PIM panel |
+| `/api/cart` | Cart REST API |
+| `/api/admin/*` | Admin REST API (products, suppliers, brands, categories) |
+| `/api/recommendations` | Climate-based product recommendations |
 
-## 📦 Installation
+## 📦 Quick Start
 
-### Prerequisites
-- Node.js 20.9.0 or higher
-- PostgreSQL database
-- npm or yarn
+See **[docs/bootstrap.md](docs/bootstrap.md)** for full local-development instructions.
 
-### Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Tschiffer46/Travelease.git
-   cd Travelease
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edit `.env` with your configuration:
-   ```env
-   DATABASE_URL="postgresql://user:password@localhost:5432/travelease"
-   NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="your-secret-key"
-   STRIPE_SECRET_KEY="sk_test_..."
-   STRIPE_PUBLISHABLE_KEY="pk_test_..."
-   ```
-
-4. **Set up the database**
-   ```bash
-   npm run db:push
-   npm run db:seed
-   ```
-
-5. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 🗂️ Project Structure
-
-```
-Travelease/
-├── app/                    # Next.js App Router
-│   ├── api/               # API routes
-│   ├── products/          # Product pages
-│   ├── cart/              # Shopping cart
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Global styles
-├── components/            # React components
-│   ├── ui/               # Reusable UI components
-│   │   ├── Button.tsx    # Button with variants
-│   │   ├── Card.tsx      # Card component
-│   │   ├── Badge.tsx     # Badge/tag component
-│   │   └── Container.tsx # Layout container
-│   ├── Navigation.tsx     # Main navigation
-│   └── ...
-├── lib/                   # Utility functions
-├── prisma/               # Database schema
-│   ├── schema.prisma     # Prisma schema
-│   └── seed.ts           # Database seeding
-├── public/               # Static assets
-└── tailwind.config.ts    # Tailwind configuration
+```bash
+git clone https://github.com/Tschiffer46/Travelease.git
+cd Travelease
+npm install                        # also runs prisma generate
+cp .env.example .env.local         # fill in required variables
+npm run db:push                    # push schema to PostgreSQL
+npm run db:seed                    # seed 100+ products
+npm run dev                        # http://localhost:3000
 ```
 
-## 🚀 Deployment
+**Required environment variables:**
 
-### Vercel (Recommended)
-
-The easiest way to deploy TravelEase is using [Vercel](https://vercel.com):
-
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Add environment variables
-4. Deploy!
-
-### Alternative Platforms
-
-TravelEase can also be deployed to:
-- Railway
-- Heroku
-- Any Node.js hosting platform
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `NEXTAUTH_URL` | `http://localhost:3000` (dev) |
+| `NEXTAUTH_SECRET` | Random secret (`openssl rand -base64 32`) |
+| `STRIPE_SECRET_KEY` | Stripe secret key (test or live) |
+| `STRIPE_PUBLISHABLE_KEY` | Stripe publishable key |
+| `OPENWEATHER_API_KEY` | OpenWeather API key (free tier works) |
 
 ## 📝 Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run db:push` - Push schema changes to database
-- `npm run db:seed` - Seed database with sample data
+| Script | Description |
+|---|---|
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm start` | Start production server |
+| `npm run lint` | ESLint |
+| `npm run db:push` | Push schema changes to DB |
+| `npm run db:seed` | Seed with sample products |
 
-## 🔐 Security
+## 🚀 Deployment
 
-- Environment variables for sensitive data
-- HTTPS in production
-- CSRF protection
-- Input validation with Zod
-- SQL injection protection via Prisma
+TravelEase is deployed on **Railway**. See **[docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md)** for details.
 
-## 🌐 Browser Support
+- Build: `npm ci && npm run build`
+- Start: `npm start`
+- Health check: `/`
+- Config: `railway.json`
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome)
+## 🎨 Design System
 
-## 🤝 Contributing
+Scandinavian minimalist aesthetic:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- **Typography**: DM Serif Display (headings) + Inter (body)
+- **Colors**: deep ocean blue `#1B4965`, warm sand/gold `#DDA15E`, warm whites
+- **Animations**: Framer Motion — subtle, smooth transitions
+
+## 📚 Documentation
+
+| Document | Description |
+|---|---|
+| [docs/architecture.md](docs/architecture.md) | System architecture, data model, API routes |
+| [docs/bootstrap.md](docs/bootstrap.md) | Local development setup |
+| [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md) | Railway deployment guide |
+| [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) | Environment variable reference |
+| [ADMIN_API_DOCUMENTATION.md](ADMIN_API_DOCUMENTATION.md) | Admin REST API reference |
+| [PIM_SYSTEM_SUMMARY.md](PIM_SYSTEM_SUMMARY.md) | PIM system overview |
 
 ## 📄 License
 
-ISC License - see LICENSE file for details
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Database powered by [Prisma](https://www.prisma.io/)
-- Icons from [Lucide](https://lucide.dev/)
-- Animations by [Framer Motion](https://www.framer.com/motion/)
+ISC — see LICENSE file for details.
 
 ---
 
